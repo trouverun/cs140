@@ -60,30 +60,18 @@ public class StudentRegister {
         Comparator<Attainment> comp;
         switch(order) {
             case "by name":
-                comp = new Comparator<Attainment>() {
-                    @Override
-                    public int compare(Attainment o1, Attainment o2) {
-                        Course course1 = courses.get(o1.getCourseCode());
-                        Course course2 = courses.get(o2.getCourseCode());
-                        return course1.getName().compareTo(course2.getName());
-                    }
+                comp = (o1, o2) -> {
+                    Course course1 = courses.get(o1.getCourseCode());
+                    Course course2 = courses.get(o2.getCourseCode());
+                    return course1.getName().compareTo(course2.getName());
                 };
+                break;
             case "by code":
-                comp = new Comparator<Attainment>() {
-                    @Override
-                    public int compare(Attainment o1, Attainment o2) {
-                        return o1.getCourseCode().compareTo(o2.getCourseCode());
-                    }
-
-                };
-            default: {
-                comp = new Comparator<Attainment>() {
-                    @Override
-                    public int compare(Attainment o1, Attainment o2) {
-                        return 1;
-                    }
-                };
-            }
+                comp = (o1, o2) -> o1.getCourseCode().compareTo(o2.getCourseCode());
+                break;
+            default:
+                comp = (o1, o2) -> 1;
+                break;
         }
 
         Student stud = students.get(studentNumber);
@@ -91,7 +79,7 @@ public class StudentRegister {
         System.out.format("%s (%s):\n", stud.getName(), stud.getStudentNumber());
         for (Attainment att : atts) {
             Course course = courses.get(att.getCourseCode());
-            System.out.format("  %s %s: %d\n", course.getCode(), course.getName(), course.getCredits());
+            System.out.format("  %s %s: %d\n", course.getCode(), course.getName(), att.getGrade());
         }
     }
 
