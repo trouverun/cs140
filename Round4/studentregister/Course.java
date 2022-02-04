@@ -1,3 +1,5 @@
+package studentregister;
+
 public class Course {
     private final String code;
     private final String name;

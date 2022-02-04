@@ -1,3 +1,5 @@
+package studentregister;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -20,7 +22,7 @@ public class StudentRegister {
             }
         };
 
-        return new ArrayList<>(students.values());
+        return students.values().stream().sorted(comp).collect(Collectors.toList());
     }
 
     public List<Course> getCourses() {
@@ -31,7 +33,7 @@ public class StudentRegister {
             }
         };
 
-        return new ArrayList<>(courses.values());
+        return courses.values().stream().sorted(comp).collect(Collectors.toList());
     }
 
     public void addStudent(Student student) {
@@ -51,6 +53,11 @@ public class StudentRegister {
     }
 
     public void printStudentAttainments(String studentNumber, String order) {
+        if (!attainments.containsKey(studentNumber)) {
+            System.out.format("Unknown student number: %s.\n", studentNumber);
+            return;
+        }
+
         Comparator<Attainment> comp;
         switch(order) {
             case "by name": {
