@@ -1,4 +1,3 @@
-package studentregister;
 
 public class Attainment {
     private final String courseCode;

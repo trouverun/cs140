@@ -1,4 +1,3 @@
-package studentregister;
 
 public class Student {
     private final String name;

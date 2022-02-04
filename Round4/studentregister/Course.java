@@ -1,4 +1,3 @@
-package studentregister;
 
 public class Course {
     private final String code;
