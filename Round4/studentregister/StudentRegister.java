@@ -53,7 +53,7 @@ public class StudentRegister {
 
     public void printStudentAttainments(String studentNumber, String order) {
         if (!attainments.containsKey(studentNumber)) {
-            System.out.format("Unknown student number: %s.\n", studentNumber);
+            System.out.format("Unknown student number: %s\n", studentNumber);
             return;
         }
 
@@ -92,7 +92,7 @@ public class StudentRegister {
         System.out.format("%s (%s):\n", stud.getName(), stud.getStudentNumber());
         for (Attainment att : atts) {
             Course course = courses.get(att.getCourseCode());
-            System.out.format("  %s %s: %d\n", course.getName(), course.getName(), course.getCredits());
+            System.out.format("  %s %s: %d\n", course.getCode(), course.getName(), course.getCredits());
         }
     }
 
