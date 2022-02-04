@@ -59,7 +59,7 @@ public class StudentRegister {
 
         Comparator<Attainment> comp;
         switch(order) {
-            case "by name": {
+            case "by name":
                 comp = new Comparator<Attainment>() {
                     @Override
                     public int compare(Attainment o1, Attainment o2) {
@@ -68,15 +68,14 @@ public class StudentRegister {
                         return course1.getName().compareTo(course2.getName());
                     }
                 };
-            }
-            case "by code": {
+            case "by code":
                 comp = new Comparator<Attainment>() {
                     @Override
                     public int compare(Attainment o1, Attainment o2) {
                         return o1.getCourseCode().compareTo(o2.getCourseCode());
                     }
+
                 };
-            }
             default: {
                 comp = new Comparator<Attainment>() {
                     @Override
