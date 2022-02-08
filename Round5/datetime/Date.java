@@ -1,5 +1,3 @@
-package datetime;
-
 public class Date {
     private final int year;
     private final int month;

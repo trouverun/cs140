@@ -1,5 +1,3 @@
-package datetime;
-
 public class DateTime extends Date {
     final int hour;
     final int minute;
